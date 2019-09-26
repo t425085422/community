@@ -1,4 +1,4 @@
-package com.taotao.life.taotao.okHttp;
+package com.taotao.life.okHttp;
 
 import okhttp3.*;
 

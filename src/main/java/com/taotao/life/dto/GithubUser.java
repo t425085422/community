@@ -1,4 +1,4 @@
-package com.taotao.life.taotao.dto;
+package com.taotao.life.dto;
 
 import lombok.Getter;
 import lombok.Setter;

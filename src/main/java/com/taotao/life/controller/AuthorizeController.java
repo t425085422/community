@@ -1,14 +1,14 @@
-package com.taotao.life.taotao.controller;
+package com.taotao.life.controller;
 
-import com.taotao.life.taotao.dto.AccessTokenDto;
-import com.taotao.life.taotao.dto.GithubUser;
+import com.taotao.life.dto.AccessTokenDto;
+import com.taotao.life.dto.GithubUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.taotao.life.taotao.provider.GithubProvider;
+import com.taotao.life.provider.GithubProvider;
 
 import javax.servlet.http.HttpServletRequest;
 

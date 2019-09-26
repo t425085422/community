@@ -1,7 +1,7 @@
-package com.taotao.life.taotao.utils;
+package com.taotao.life.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.taotao.life.taotao.dto.AccessTokenDto;
+import com.taotao.life.dto.AccessTokenDto;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

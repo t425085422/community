@@ -1,4 +1,4 @@
-package com.taotao.life.taotao;
+package com.taotao.life;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

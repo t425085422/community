@@ -1,4 +1,4 @@
-package com.taotao.life.taotao.controller;
+package com.taotao.life.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,9 +1,9 @@
-package com.taotao.life.taotao.provider;
+package com.taotao.life.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.taotao.life.taotao.dto.AccessTokenDto;
-import com.taotao.life.taotao.dto.GithubUser;
-import com.taotao.life.taotao.utils.MapUtils;
+import com.taotao.life.dto.AccessTokenDto;
+import com.taotao.life.dto.GithubUser;
+import com.taotao.life.utils.MapUtils;
 import okhttp3.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
