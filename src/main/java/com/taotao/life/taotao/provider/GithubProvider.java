@@ -41,8 +41,8 @@ public class GithubProvider {
                 .build();
          Response response = client.newCall(request).execute();
             String string = response.body().string();
-            System.out.println(string);
-            return string;
+            String a = string.split("&")[0].split("=")[1];
+            return a;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,11 +54,9 @@ public class GithubProvider {
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token="+accessToken)
                 .build();
-
         try {
             Response response = client.newCall(request).execute();
-            String string = request.body().toString();
-            GithubUser user = JSON.parseObject(string, GithubUser.class);
+            GithubUser user = JSON.parseObject(response.body().string(), GithubUser.class);
             return user;
         } catch (IOException e) {
             e.printStackTrace();
