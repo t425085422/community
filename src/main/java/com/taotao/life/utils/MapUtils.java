@@ -2,16 +2,20 @@ package com.taotao.life.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.taotao.life.dto.AccessTokenDto;
+import lombok.val;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MapUtils {
     private static String compile = "[A-Z]";
+    private static Object obj;
 
     private MapUtils(){}
 
@@ -81,6 +85,14 @@ public class MapUtils {
         return sb.toString();
     }
 
+    public static String isNotEmptyBatch(Object... objs) {
+        for (Object obj : objs) {
+            if (obj == null || "".equals(obj)) {
+                return "必传参数有空值";
+            }
+        }
+        return "";
+    }
 
     public static void main(String[] args) {
         AccessTokenDto accessTokenDto = new AccessTokenDto();
@@ -93,7 +105,6 @@ public class MapUtils {
         String jsonString = JSON.toJSONString(transform);
         // {"shop_id":"9527","product_type":2,"shop":{"shop_phone":"13800138000","shop_name":"人民大会堂","shop_address":"北京市天安门"},"user_address":"北京市朝阳区","weight":100,"is_appoint":0,"pay_type":0,"millisecond_time":1539225333920,"create_date":1539225333920,"push_time":1539225333,"dev_id":123456789}
         System.out.println(jsonString);
-
     }
 
 }

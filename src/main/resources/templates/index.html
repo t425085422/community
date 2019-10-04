@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>陶陶社区</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/community.css">
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
@@ -25,10 +26,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" th:if="${session.usger !=null}">·
+                <li class="dropdown" th:if="${session.user !=null}">·
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">
-                        <span th:text="${session.usger.name}"></span>
+                        <span th:text="${session.user.name}"></span>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">消息中心</a></li>
@@ -36,12 +37,57 @@
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
-                <li th:if="${session.usger == null}">
+                <li th:if="${session.user == null}">
                     <a href="https://github.com/login/oauth/authorize?client_id=675c188385ae6c8c9e5e&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
                 </li>
             </ul>
         </div>
     </div>
+</nav>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h4><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h4>
+            <hr>
+
+            <div class="media" th:each="question : ${pageInfo.list}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded" src="http://img3.imgtn.bdimg.com/it/u=2887116093,4058881618&fm=26&gp=0.jpg">
+                        <!--                             th:src="${question.user.avatarUrl}">-->
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <span th:text="${question.description}"></span> <br>
+                    <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 • <span
+                            th:text="${question.viewCount}"></span> 次浏览 • <span  th:text="${#dates.format(question.createTime,'dd MMMM yyyy')}"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h4>热门话题</h4>
+        </div>
+    </div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+       <!-- <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>-->
+        <li><a th:href="@{/}">首页</a></li>
+        <li><a th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></li>
+        <li><a th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></li>
+        <li><a th:href="@{/(pageNum=${pageInfo.pages})}">尾页</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 </body>
 </html>

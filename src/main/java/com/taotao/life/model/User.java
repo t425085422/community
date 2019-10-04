@@ -1,8 +1,10 @@
 package com.taotao.life.model;
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.Date;
 
-public class User {
+public class User{
     private Integer id;
 
     private String accountId;

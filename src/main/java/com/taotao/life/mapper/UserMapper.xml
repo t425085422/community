@@ -171,7 +171,22 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+    <select id="findUserByToken" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where token  = #{token,jdbcType=VARCHAR}
+    </select>
+    <select id="selectUserByAccountId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where account_id  = #{accountId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectUserById" resultType="com.taotao.life.model.User">
+
+    </select>
+    <update id="updateByExampleSelective" parameterType="map" >
     update user
     <set >
       <if test="record.id != null" >

@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class GithubUser {
-    public String ge;
+
     private String name;
     private Long id;
     private String bio;
@@ -14,8 +14,7 @@ public class GithubUser {
     @Override
     public String toString() {
         return "GithubUser{" +
-                "ge='" + ge + '\'' +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", id=" + id +
                 ", bio='" + bio + '\'' +
                 '}';

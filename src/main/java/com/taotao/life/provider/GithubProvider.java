@@ -35,7 +35,6 @@ public class GithubProvider {
             Map<String, String> map = objectToMap(accessTokenDto);
             Map map1 = mapUtils.transform(accessTokenDto);
             String url = getUrl("https://github.com/login/oauth/access_token",(HashMap<String, String>) map1);
-            System.out.println(url);
             Request request = new Request.Builder()
                 .url(url)
                 .build();
