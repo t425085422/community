@@ -1,13 +1,10 @@
 package com.taotao.life.mapper;
 
 import com.taotao.life.model.PublicQuestion;
-import com.taotao.life.dao.PublicQuestionExample;
+import com.taotao.life.model.PublicQuestionExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-@Mapper
 public interface PublicQuestionMapper {
     int countByExample(PublicQuestionExample example);
 
@@ -38,4 +35,6 @@ public interface PublicQuestionMapper {
     int updateByPrimaryKey(PublicQuestion record);
 
     List<PublicQuestion> selectList();
+
+    List<PublicQuestion> selectListById(Integer id);
 }

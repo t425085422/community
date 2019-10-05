@@ -24,7 +24,6 @@ public class IndexController {
     @GetMapping("/")
     public String index(HttpServletRequest request, Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
         User user = helloController.UserCookie(request);
-
         PageInfo <PublicQuestionVo> questionList = questionService.list(pageNum);
         model.addAttribute("pageInfo", questionList);
         return "index";
